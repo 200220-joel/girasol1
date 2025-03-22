@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Girasol Minimalista</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #0A0A32;
+            overflow: hidden;
+            position: relative;
+            padding-left: 150px;
+        }
+
+        .sunflower-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: moveSunflower 4s infinite alternate ease-in-out;
+            z-index: 2;
+        }
+
+        @keyframes moveSunflower {
+            0% { transform: translate(-50%, -50%) rotate(-2deg); }
+            100% { transform: translate(-50%, -50%) rotate(2deg); }
+        }
+
+        .sunflower {
+            position: relative;
+            width: 250px;
+            height: 250px;
+        }
+
+        .center {
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, #8B4513, #5A2E0F);
+            border-radius: 50%;
+            position: absolute;
+            top: -8%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: inset 0 0 25px black;
+            z-index: 3;
+        }
+
+        .petal {
+            width: 70px;
+            height: 140px;
+            background: radial-gradient(circle, #FFD700, #FFA500);
+            position: absolute;
+            top: -8%;
+            left: 50%;
+            transform-origin: center bottom;
+            border-radius: 50% 50% 0 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            z-index: 2;
+        }
+
+        .stem {
+            width: 25px;
+            height: 450px;
+            background: linear-gradient(to bottom, #228B22, #006400);
+            position: absolute;
+            top: 86%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 15px;
+            box-shadow: inset 0 0 10px black;
+            z-index: 1;
+        }
+
+        .leaf {
+            width: 80px;
+            height: 100px;
+            background: radial-gradient(circle, #32CD32, #228B22);
+            position: absolute;
+            border-radius: 50% 0 50% 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        .leaf.left {
+            left: -60px;
+            top: 210px;
+            transform: rotate(-30deg);
+        }
+
+        .leaf.right {
+            right: -60px;
+            top: 260px;
+            transform: rotate(30deg);
+        }
+
+        .message {
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 20px;
+            font-family: 'Arial Rounded MT Bold', sans-serif;
+            max-width: 250px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            background: rgba(90, 46, 15, 0.85);
+            line-height: 1.3;
+            z-index: 1;
+            backdrop-filter: blur(2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        Aquí te dejo este girasol<br>
+        para recordarte que eres:<br><br>
+        ✨ Única<br>
+        ✨ Genial<br>
+        ✨ Maravillosa<br>
+        ✨ Increíble
+    </div>
+
+    <div class="sunflower-container">
+        <div class="sunflower">
+            <div class="center"></div>
+            <script>
+                const sunflower = document.querySelector('.sunflower');
+                for (let i = 0; i < 12; i++) {
+                    let petal = document.createElement('div');
+                    petal.className = 'petal';
+                    petal.style.transform = `translate(-50%, -100%) rotate(${i * 30}deg)`;
+                    sunflower.appendChild(petal);
+                }
+            </script>
+        </div>
+        <div class="stem">
+            <div class="leaf left"></div>
+            <div class="leaf right"></div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
